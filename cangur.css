@@ -32,6 +32,13 @@ body>*{
 }
 #panel{
    border-right: 1px solid black;
+   display: flex;
+   flex-flow: column;
+}
+#quickcode{
+    display: flex;
+    flex-flow: row;
+    flex-wrap: wrap;
 }
 #cod{
    width: 100%;
