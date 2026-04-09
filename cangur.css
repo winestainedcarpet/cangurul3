@@ -1,0 +1,45 @@
+
+*{
+   box-sizing: border-box;
+   margin: 0;
+   padding: 0;
+}
+html,body {
+   margin: 0;
+   height: 100%;
+}
+body {
+   height: 100%;
+   background: white;
+   color: black;
+   padding: 3px;
+   display: grid;
+   grid-template-columns: max-content auto;
+   grid-template-rows: max-content auto;
+}
+body>*{
+   padding: 3px;
+}
+#header{
+   grid-column: span 2;
+   border-bottom: 1px solid black;
+   display: flex;
+   flex-flow: row;
+   gap: 1em;
+}
+#header>*{
+    width: fit-content;
+}
+#panel{
+   border-right: 1px solid black;
+}
+#cod{
+   width: 100%;
+   height: 100%;
+}
+#grid{
+    background: gray;
+}
+#cangur{
+    position: absolute;
+}
