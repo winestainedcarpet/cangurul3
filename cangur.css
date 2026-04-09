@@ -35,6 +35,7 @@ body>*{
    border-right: 1px solid black;
    display: flex;
    flex-flow: column;
+   gap: 0.25em;
 }
 #quickcode{
     display: flex;
@@ -51,6 +52,7 @@ body>*{
     display: grid;
     grid-template-columns: auto auto;
     grid-auto-rows: auto;
+    gap: 0.25em;
 }
 #cod{
    width: 100%;
