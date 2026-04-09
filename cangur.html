@@ -29,6 +29,11 @@
    </header>
    <aside id="panel">
 
+      <div id="actions">
+         <button>Rulare</button>
+         <button disabled>Oprire</button>
+      </div>
+      <hr>
       <div id="quickcode">
          <button>PAS</button>
          <button>SALT</button>
@@ -40,8 +45,10 @@
 
    </aside>
    <main id="main">
-      <div id="cangur"></div>
-      <canvas id="grid"></canvas>
+      <div id="cangur_container">
+         <div id="cangur"></div>
+         <canvas id="grid"></canvas>
+      </div>
    </main>
 </body>
 <script src="script.js"></script>

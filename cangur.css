@@ -26,6 +26,7 @@ body>*{
    display: flex;
    flex-flow: row;
    gap: 1em;
+   align-items: center;
 }
 #header>*{
     width: fit-content;
@@ -39,6 +40,17 @@ body>*{
     display: flex;
     flex-flow: row;
     flex-wrap: wrap;
+    gap: 0.25em;
+    padding: 0.1em;
+}
+#quickcode > button{
+    padding: 0.25em 1em;
+    flex-grow: 1;
+}
+#actions{
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-auto-rows: auto;
 }
 #cod{
    width: 100%;
@@ -46,6 +58,10 @@ body>*{
 }
 #grid{
     background: gray;
+}
+#cangur_container{
+    width: fit-content;
+    height: fit-content;
 }
 #cangur{
     position: absolute;
