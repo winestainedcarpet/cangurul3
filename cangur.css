@@ -4,6 +4,9 @@
    margin: 0;
    padding: 0;
 }
+details,summary{
+   margin: 0;
+}
 html,body {
    margin: 0;
    height: 100%;
@@ -45,14 +48,14 @@ body>*{
    width: 250px;
    min-width: min-content;
 }
-#quickcode,#actions{
+#quickcode,#actions,#advanced_quickcode{
     display: flex;
     flex-flow: row;
     flex-wrap: wrap;
     gap: 0.25em;
-    padding: 0.1em;
+    padding: 0.1em !important;
 }
-#quickcode >*,#actions>*{
+#quickcode >*,#actions>*,#advanced_quickcode>*{
     padding: 0.25em 1em;
     flex-grow: 1;
 }
@@ -76,18 +79,41 @@ body>*{
    padding: 40px 0 0 40px;
 }
 #grid{
-    background: gray;
+   background: gray;
 }
 #cangur_container{
-    width: fit-content;
-    height: fit-content;
+   width: fit-content;
+   height: fit-content;
+   position: relative;
 }
 #cangur{
-    position: absolute;
-    width: 40px;
-    height:40px;
-    /* top:-100%; */
-    translate: 0 -100%;
-    background: url("cangur.png") no-repeat center center;
-    transform-origin: bottom left;
+   position: absolute;
+   image-rendering: pixelated;
+   width: 40px;
+   height:40px;
+   /* top:-100%; */
+   translate: 0 -100%;
+   background: url("images/cangur/cangur_right.png") center center/100% 100% no-repeat;
+   transform-origin: bottom left;
+}
+#cangur.disc{
+   left:50%;
+   top:50%;
+}
+#cangur.down{
+   width: 30px;
+   translate: -100% -100%;
+   background-image: url("images/cangur/cangur_down.PNG");
+   transform-origin: bottom right;
+}
+#cangur.left{
+   translate: -100% -100%;
+   background-image: url("images/cangur/cangur_left.png");
+   transform-origin: bottom right;
+}
+#cangur.up{
+   width: 30px;
+   translate: -50% -100%;
+   background-image: url("images/cangur/cangur_up.PNG");
+   transform-origin: bottom right;
 }
