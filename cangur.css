@@ -12,10 +12,10 @@ body {
    height: 100%;
    background: white;
    color: black;
-   padding: 3px;
+   /* padding: 3px; */
    display: grid;
-   grid-template-columns: max-content auto;
-   grid-template-rows: max-content auto;
+   grid-template-columns: min-content auto;
+   grid-template-rows: min-content auto;
 }
 body>*{
    padding: 3px;
@@ -27,6 +27,10 @@ body>*{
    flex-flow: row;
    gap: 1em;
    align-items: center;
+   flex-wrap: wrap;
+   background: 
+    linear-gradient(to bottom,lightgray,white) top/100% 2em no-repeat
+   ;
 }
 #header>*{
     width: fit-content;
@@ -36,27 +40,40 @@ body>*{
    display: flex;
    flex-flow: column;
    gap: 0.25em;
+   resize: horizontal;
+   overflow-y: auto;
+   width: 250px;
+   min-width: min-content;
 }
-#quickcode{
+#quickcode,#actions{
     display: flex;
     flex-flow: row;
     flex-wrap: wrap;
     gap: 0.25em;
     padding: 0.1em;
 }
-#quickcode > button{
+#quickcode >*,#actions>*{
     padding: 0.25em 1em;
     flex-grow: 1;
 }
-#actions{
-    display: grid;
-    grid-template-columns: auto auto;
-    grid-auto-rows: auto;
-    gap: 0.25em;
+#quickcode >label,#actions>label{
+    border:1px solid gray;
+    border-radius:3px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 #cod{
    width: 100%;
    height: 100%;
+   resize: none;
+}
+#main{
+   position: relative;
+   overflow: auto;
+   width: 100%;
+   height:100%;
+   padding: 40px 0 0 40px;
 }
 #grid{
     background: gray;
@@ -67,4 +84,10 @@ body>*{
 }
 #cangur{
     position: absolute;
+    width: 40px;
+    height:40px;
+    /* top:-100%; */
+    translate: 0 -100%;
+    background: url("cangur.png") no-repeat center center;
+    transform-origin: bottom left;
 }

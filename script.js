@@ -23,6 +23,7 @@ grid_type_select.addEventListener("input",()=>{
       segments_input_label.style.setProperty("display","initial")
    }
 })
+const tilesize = 28
 function resetDrawing(){
    function lineInit(){
       ctx.strokeStyle = "yellow";
@@ -31,14 +32,23 @@ function resetDrawing(){
    }
    ctx.reset()
    if(grid_type_select.value=="square"){
-      const width = Number(columns_input.value);
-      const height = Number(rows_input.value);
-      grid.width = width*64
-      grid.height = height*64
-      ctx.beginPath();
-      ctx.moveTo(0,0.5);
-      ctx.lineTo(400, 0.5);
-      ctx.stroke();
+      const width = Number(columns_input.value)+1;
+      const height = Number(rows_input.value)+1;
+      grid.width = width*tilesize
+      grid.height = height*tilesize
+      lineInit()
+      for (let i = 0; i < width; i++) {
+         ctx.beginPath();
+         ctx.moveTo(i*tilesize+0.5,0);
+         ctx.lineTo(i*tilesize+0.5, grid.height-tilesize);
+         ctx.stroke();
+      }
+      for (let i = 0; i < height; i++) {
+         ctx.beginPath();
+         ctx.moveTo(0,i*tilesize+0.5);
+         ctx.lineTo(grid.width-tilesize, i*tilesize+0.5);
+         ctx.stroke();
+      }
    }else if(grid_type_select.value=="disc"){
       const rings = Number(rings_input.value);
       const segments = Number(segments_input.value);
@@ -62,4 +72,39 @@ function resetDrawing(){
       }
    }
 }
-reset_drawing_button.addEventListener("click",resetDrawing)
+;[reset_drawing_button,grid_type_select].forEach(
+   input=>input.addEventListener("click",resetDrawing)
+)
+resetDrawing()
+let cangur = {x:0,y:0,rotation:0}
+const cangurElement = document.getElementById("cangur")
+function drawCangur(){
+   cangurElement.style.setProperty(`transform`,`translate(${cangur.x*tilesize}px,${cangur.y*tilesize}px) rotate(${cangur.rotation}turn)`)
+}
+function jump(){
+   switch(cangur.rotation){
+      case 0: cangur.x++; break;
+      case 0.25: cangur.y++; break;
+      case 0.5: cangur.x--; break;
+      case 0.75: cangur.y--; break;
+   }
+   drawCangur()
+}
+function step(){
+      ctx.strokeStyle = "black";
+      ctx.lineWidth = 1;ctx.setLineDash([])
+         ctx.beginPath();
+         ctx.moveTo(cangur.x*tilesize+0.5,cangur.y*tilesize+0.5);
+         jump()
+         ctx.lineTo(cangur.x*tilesize+0.5,cangur.y*tilesize+0.5);
+         ctx.stroke();
+   drawCangur()
+}
+function rotate(){
+   cangur.rotation = (cangur.rotation+0.25)%1
+   drawCangur()
+}
+   drawCangur()
+step_button.addEventListener("click",step)
+jump_button.addEventListener("click",jump)
+rotate_button.addEventListener("click",rotate)
