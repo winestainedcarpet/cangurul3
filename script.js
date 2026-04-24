@@ -113,7 +113,7 @@ function resetDrawing(){
       const segment_angle = Math.PI*2/segments
       for (let i = 0; i < segments; i++) {
          ctx.beginPath();
-         ctx.moveTo(grid.width/2,grid.width/2);
+         ctx.moveTo(center,center);
          const angle = segment_angle*i
          ctx.lineTo(center + Math.sin(angle+0.5*Math.PI)*radius, center + Math.cos(angle+0.5*Math.PI)*radius);
          ctx.stroke();
