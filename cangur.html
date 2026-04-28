@@ -30,7 +30,7 @@
       </label>
       <button id="reset_drawing_button">Reset desen</button>
    </header>
-      <!-- <dialog open style="margin: auto;">
+      <!-- <dialog open style="margin: auto;" id="instructions">
          PAS
 Cangurul execută un „PAS”, adică lasă o urmă pe traiectoria pe care a mers.
 SALT
@@ -41,9 +41,9 @@ Cangurul execută o „ROTIRE”, cu 90 de grade după acele ceasornicului.
    <aside id="panel">
       <button>Tutorial / instrucțiuni</button>
       <div id="actions">
-         <button>Rulare</button>
-         <button disabled>Oprire</button>
-         <button>Iterează</button>
+         <button id="run_button">Rulare</button>
+         <button id="stop_button" disabled style="display: none;">Oprire</button>
+         <button id="iterate_button">Iterează</button>
          <label>
             Milisecunde intre fiecare iterație:
             <input type="number" id="iterations_speed" value="1000" min="100" max="1000">
@@ -55,26 +55,26 @@ Cangurul execută o „ROTIRE”, cu 90 de grade după acele ceasornicului.
             control manual:
             <input type="checkbox" id="manual_mode">
          </label>
-         <button id="step_button">PAS</button>
-         <button id="jump_button">SALT</button>
-         <button id="rotate_button">ROTIRE</button>
+         <button id="step_button" data-code="PAS">PAS</button>
+         <button id="jump_button" data-code="SALT">SALT</button>
+         <button id="rotate_button" data-code="ROTIRE">ROTIRE</button>
          <details style="padding: 0;">
             <summary>Comenzi avansate</summary>
             <section id="advanced_quickcode">
-               <button>
+               <button type="button" data-template="repeat">
                   REPETA
                   <input type="number" style="width: 3em;display: inline-block;">
                   ORI
                </button>
-               <button>
+               <button type="button" data-template="procedure">
                   PROCEDURA
                   <input type="text" style="width: 6em;display: inline-block;">
                </button>
-               <button>
+               <button type="button" data-template="execute">
                   EXECUTA
                   <input type="text" style="width: 6em;display: inline-block;">
                </button>
-               <button>
+               <button type="button" data-template="while">
                   CIT
                   <select>
                      <option>E_MARGINE</option>
@@ -83,7 +83,7 @@ Cangurul execută o „ROTIRE”, cu 90 de grade după acele ceasornicului.
                      <option>NU E_LINIE</option>
                   </select>
                </button>
-               <button>
+               <button type="button" data-template="if">
                   DACA
                   <select>
                      <option>E_MARGINE</option>
