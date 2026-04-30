@@ -12,6 +12,8 @@ const iterations_speed_input = document.getElementById("iterations_speed")
 const manual_mode_input = document.getElementById("manual_mode")
 const code_textarea = document.getElementById("cod")
 const advanced_quickcode = document.getElementById("advanced_quickcode")
+const instructions_button = document.getElementById("instructions_button")
+const instructions_dialog = document.getElementById("instructions")
 const columns_input_label = document.getElementById("columns_input_label")
 const columns_input = document.getElementById("columns_input")
 const rows_input_label = document.getElementById("rows_input_label")
@@ -927,6 +929,19 @@ function iterateProgram() {
    advanceRuntime()
 }
 
+function openInstructions() {
+   if (instructions_dialog.open) {
+      return
+   }
+
+   if (typeof instructions_dialog.showModal === "function") {
+      instructions_dialog.showModal()
+      return
+   }
+
+   instructions_dialog.setAttribute("open", "")
+}
+
 grid_type_select.addEventListener("input", () => {
    updateGridTypeInputs()
    resetDrawing()
@@ -987,9 +1002,19 @@ manual_mode_input.addEventListener("input", syncManualModeUI)
 code_textarea.addEventListener("input", () => {
    program_runtime = null
 })
+instructions_button.addEventListener("click", openInstructions)
+instructions_dialog.addEventListener("click", event => {
+   if (event.target === instructions_dialog) {
+      instructions_dialog.close()
+   }
+})
 run_button.addEventListener("click", startProgram)
 stop_button.addEventListener("click", stopProgram)
 iterate_button.addEventListener("click", iterateProgram)
+window.addEventListener("beforeunload", event => {
+   event.preventDefault()
+   event.returnValue = ""
+})
 
 updateGridTypeInputs()
 resetDrawing()

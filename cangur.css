@@ -3,6 +3,9 @@
    margin: 0;
    padding: 0;
 }
+/* h1,h2,h3,h4,h5,h6{
+   margin: 0;
+} */
 details,summary{
    margin: 0;
 }
@@ -18,7 +21,8 @@ body {
    display: grid;
    grid-template-columns: min-content auto;
    grid-template-rows: min-content auto;
-   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+   font-family: 'Times New Roman', Times, serif;
+   line-height: 1.2;
 }
 body>*{
    padding: 3px;
@@ -116,4 +120,8 @@ body>*{
    translate: -50% -100%;
    background-image: url("images/cangur/cangur_up.PNG");
    transform-origin: bottom right;
+}
+#instructions>h2{
+   border-top: 1px solid black;
+   border-bottom: 1px solid black;
 }

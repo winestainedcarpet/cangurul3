@@ -30,29 +30,50 @@
       </label>
       <button id="reset_drawing_button">Reset desen</button>
    </header>
-      <!-- <dialog open style="margin: auto;" id="instructions">
-         PAS
-Cangurul execută un „PAS”, adică lasă o urmă pe traiectoria pe care a mers.
-SALT
-Cangurul execută un „SALT”, adică execută un „PAS” fără a lăsa urme.
-ROTIRE
-Cangurul execută o „ROTIRE”, cu 90 de grade după acele ceasornicului.
-      </dialog> -->
+      <dialog id="instructions" style="margin: auto; max-width: 48rem; white-space: pre-wrap;  border: 1px solid;text-align: center;line-height: 1;">
+<h1>Instrucțiuni</h1>
+<h2>Comenzi simple</h2>
+<h3>PAS</h3>
+<img src="instruction_pas.png">
+<p>Cangurul executa un PAS, adica se muta o pozitie si deseneaza traseul parcurs.</p>
+<h3>SALT</h3>
+<img src="instruction_salt.png">
+<p>Cangurul executa un SALT, adica se muta o pozitie fara sa lase urma.</p>
+<h3>ROTIRE</h3>
+<img src="instruction_rotire.png">
+<p>Cangurul executa o ROTIRE cu 90 de grade in sensul acelor de ceasornic.</p>
+<h2>Comenzi avansate</h2>
+<h3>REPETA n ORI</h3>
+<p>Executa de n ori blocul dintre REPETA si SFIRSITUL REPETARII.</p>
+<h3>PROCEDURA nume</h3>
+<p>Defineste o procedura care poate fi apelata mai tarziu cu <code>EXECUTA nume.</code></p>
+<h3>EXECUTA nume</h3>
+<p>Porneste procedura cu numele dat.</p>
+<h3>CIT conditie</h3>
+<p>Executa blocul pana la SFIRSITUL CICLULUI atata timp cat conditia ramane adevarata.</p>
+<h3>DACA conditie ATUNCI ... ALTFEL ...</h3>
+<p>Executa instructiunea de dupa <code>ATUNCI</code> daca testul este adevarat, altfel pe cea de dupa <code>ALTFEL</code>.</p>
+<h3>Conditii disponibile</h3>
+<p>E_MARGINE, NU E_MARGINE, E_LINIE, NU E_LINIE</p>
+         <form method="dialog" style="margin-top: 1rem;width: 100%;">
+            <button type="submit">Inchide</button>
+         </form>
+      </dialog>
    <aside id="panel">
-      <button>Tutorial / instrucțiuni</button>
+      <button id="instructions_button">Tutorial / instrucțiuni</button>
       <div id="actions">
          <button id="run_button">Rulare</button>
          <button id="stop_button" disabled style="display: none;">Oprire</button>
          <button id="iterate_button">Iterează</button>
          <label>
             Milisecunde intre fiecare iterație:
-            <input type="number" id="iterations_speed" value="1000" min="100" max="1000">
+            <input type="number" id="iterations_speed" value="500" min="100" max="1000">
          </label>
       </div>
       <hr>
       <div id="quickcode">
          <label style="width:100%;">
-            control manual:
+            Control manual:
             <input type="checkbox" id="manual_mode">
          </label>
          <button id="step_button" data-code="PAS">PAS</button>
